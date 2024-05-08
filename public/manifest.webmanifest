@@ -1,7 +1,7 @@
 {
-	"name": "Astro Theme Cactus Demo",
-	"short_name": "Astro_Cactus",
-	"description": "Starter blog site for Astro",
+	"name": "Arif Soylu | Personal Website",
+	"short_name": "soylu.dev",
+	"description": "Personal website that includes some information and blog",
 	"icons": [
 		{
 			"src": "/192x192.png",
