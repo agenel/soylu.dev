@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import Pagination from "@/components/Paginator.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import PageLayout from "@/layouts/Base.astro";
-import { getAllPosts, getUniqueTags, sortMDByDate } from "@/data/post";
+import { getAllPosts, getUniqueTags, sortMDByDate } from "@/data/work";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();
@@ -22,20 +22,20 @@ interface Props {
 const { page, uniqueTags } = Astro.props;
 
 const meta = {
-	description: "Ready my collection of posts and the things that interest me",
-	title: "Posts",
+	description: "Collection of academic works",
+	title: "Works",
 };
 
 const paginationProps = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: `← Previous Posts`,
+			text: `← Previous`,
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: `Next Posts →`,
+			text: `Next →`,
 			url: page.url.next,
 		},
 	}),
