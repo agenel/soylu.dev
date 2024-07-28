@@ -22,20 +22,20 @@ interface Props {
 const { page, uniqueTags } = Astro.props;
 
 const meta = {
-	description: "Ready my collection of posts and the things that interest me",
-	title: "Posts",
+	description: "Here is collection of scientific contributions",
+	title: "Contributions",
 };
 
 const paginationProps = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: `← Previous Posts`,
+			text: `← Previous`,
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: `Next Posts →`,
+			text: `Next →`,
 			url: page.url.next,
 		},
 	}),
