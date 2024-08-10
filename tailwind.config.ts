@@ -120,7 +120,7 @@ export default {
 		plugin(function ({ addComponents }) {
 			addComponents({
 				".cactus-link": {
-					"@apply font-extrabold": {},
+					"@apply font-black": {},
 				},
 				".title": {
 					"@apply text-2xl font-semibold text-accent-2": {},

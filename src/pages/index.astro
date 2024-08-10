@@ -45,7 +45,7 @@ const listLibs: { desc: string;  title: string }[] = [
 	},
 	{
 		desc: "COMSOL Multiphysics, Mathematica, Geant4, SUPERFISH/POISSON, SPICE",
-		title: "Physics Simulation Platforms",
+		title: "Physics Simulations",
 	},
 	
 ];
@@ -54,7 +54,7 @@ const listLibs: { desc: string;  title: string }[] = [
 
 const listHard: { desc: string;  title: string }[] = [
 	{
-		desc: "Oscilloscope, Function generators, HV power supply, Soldering station, ",
+		desc: "Oscilloscope, Function generators, HV power supply, Soldering station.",
 		title: "Lab Equipments",
 	},	
 	{
@@ -103,7 +103,7 @@ const listKnow: { desc: string;  title: string }[] = [
 		title: "Machine Learning",
 	},
 	{
-		desc: "Classical, quantum, particle, nuclear and plasma physics, special and general relativity",
+		desc: "Classical, quantum, particle and nuclear physics, magnetic fields",
 		title: "Physics Fields",
 	},
 	{
@@ -111,7 +111,7 @@ const listKnow: { desc: string;  title: string }[] = [
 		title: "Hardware",
 	},
 	{
-		desc: "Leadership, teamwork, adaptability, problem solving, creativity, analytical skills, time management.",
+		desc: "Teamwork, adaptability, problem solving, creativity, analytical skills, time management.",
 		title: "Soft Skills",
 	},
 ];
@@ -120,8 +120,8 @@ const listKnow: { desc: string;  title: string }[] = [
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hello World!</h1>
-		<p class="mb-4">
+		<h1 class="title mb-4">Hello World!</h1>
+		<p class="mb-2">
 			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
 			blog. If you want to know more about how you can customise me, add more posts, and make it
 			your own, click on the github icon link below and it will take you to my repo.
@@ -132,8 +132,8 @@ const listKnow: { desc: string;  title: string }[] = [
 	<section class="mt-16">
 		<h1 class="title mb-6">Skills</h1>
 		<!-- starts here  -->
-		<h2 class="title mb-4 text-xl">Software Development</h2>
-		<dl class="space-y-1.5">
+		<h2 class="title mb-2 text-xl">Software Development</h2>
+		<dl class="space-y-1.0">
 			{
 				listSoft.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
@@ -152,7 +152,8 @@ const listKnow: { desc: string;  title: string }[] = [
 
 		<!-- starts here  -->
 		<br /><br />
-		<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
+		<h2 class="title mb-2 text-xl">Frameworks & Libraries</h2>
+		<dl class="space-y-1.0">
 			{
 				listLibs.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
@@ -173,6 +174,8 @@ const listKnow: { desc: string;  title: string }[] = [
 		<!-- starts here  -->
 		<br /><br />
 		<h2 class="title mb-4 text-xl">Hardware</h2>
+		<dl class="space-y-1.0">
+
 			{
 				listHard.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
@@ -192,6 +195,8 @@ const listKnow: { desc: string;  title: string }[] = [
 			<!-- starts here  -->
 			<br /><br />
 			<h2 class="title mb-4 text-xl">Misc. Tools</h2>
+			<dl class="space-y-1.0">
+
 				{
 					listHard.map(({ desc,  title }) => (
 						<div class="flex flex-col gap-2 md:flex-row">
@@ -214,10 +219,9 @@ const listKnow: { desc: string;  title: string }[] = [
 
 <section class="mt-16">
 	<h1 class="title mb-6">Scientific Knowladge</h1>
+	<dl class="space-y-1.0">
 
-			<!-- starts here  -->
-			<br /><br />
-				{
+			<!-- starts here  -->				{
 					listKnow.map(({ desc,  title }) => (
 						<div class="flex flex-col gap-2 md:flex-row">
 							<dt>
