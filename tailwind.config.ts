@@ -120,10 +120,7 @@ export default {
 		plugin(function ({ addComponents }) {
 			addComponents({
 				".cactus-link": {
-					"@apply underline underline-offset-2": {},
-					"&:hover": {
-						"@apply decoration-link decoration-2": {},
-					},
+					"@apply bold": {},
 				},
 				".title": {
 					"@apply text-2xl font-semibold text-accent-2": {},
