@@ -51,6 +51,23 @@ const listLibs: { desc: string;  title: string }[] = [
 ];
 
 
+
+const listHard: { desc: string;  title: string }[] = [
+	{
+		desc: "Oscilloscope, Function generators, HV power supply, Soldering station, ",
+		title: "Lab Equipments",
+	},	
+	{
+		desc: "Rasperry Pi, Arduino, and similars.",
+		title: "Micro -processors, -controllers",
+	},
+	{
+		desc: "Red pitaya, Versa Module Eurocard(VME), NIM Modules",
+		title: "Front-end readout",
+	},
+
+];
+
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -84,19 +101,17 @@ const listLibs: { desc: string;  title: string }[] = [
 			}
 		</dl>
 	<!-- ends here  -->
+
 		<!-- starts here  -->
-		 <br /><br />
-		<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
-		<dl class="space-y-1.5">
+		<dl class="space-y-5">
+			<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
 			{
 				listLibs.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
 						<dt>
 							<span class="flex cactus-link">
 								{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
-									{title}
-								{/* </a> */}
-								:
+									{title}:
 							</span>
 						</dt>
 						<dd>{desc}</dd>
@@ -107,6 +122,24 @@ const listLibs: { desc: string;  title: string }[] = [
 	<!-- ends here  -->
 
 
+		<!-- starts here  -->
+		<dl class="space-y-5">
+			<h2 class="title mb-4 text-xl">Hardware</h2>
+			{
+				listHard.map(({ desc,  title }) => (
+					<div class="flex flex-col gap-2 md:flex-row">
+						<dt>
+							<span class="flex cactus-link">
+								{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
+									{title}:
+							</span>
+						</dt>
+						<dd>{desc}</dd>
+					</div>
+				))
+			}
+		</dl>
+	<!-- ends here  -->
 
 	</section>
 </section>
