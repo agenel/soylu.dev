@@ -20,8 +20,8 @@ const listSoft: { desc: string;  title: string }[] = [
 		title: "Scripting",
 	},
 	{
-		desc: "GNU make",
-		title: "Bulding",
+		desc: "GNU make, Git",
+		title: "Bulding / Version Control",
 	},
 	{
 		desc: "pytest, doctest (C++, Python)",
@@ -44,7 +44,7 @@ const listLibs: { desc: string;  title: string }[] = [
 		title: "Parallelization",
 	},
 	{
-		desc: "COMSOL Multiphysics, Geant4, SPICE",
+		desc: "COMSOL Multiphysics, Mathematica, Geant4, SUPERFISH/POISSON, SPICE",
 		title: "Physics Simulation Platforms",
 	},
 	
@@ -66,6 +66,54 @@ const listHard: { desc: string;  title: string }[] = [
 		title: "Front-end readout",
 	},
 
+];
+
+
+const listTools: { desc: string;  title: string }[] = [
+	{
+		desc: "Linux (Arch, Ubuntu, CentOS, WSL), Windows ",
+		title: "Operating Systems",
+	},	
+	{
+		desc: "VIm, VS Code, Sublime Text, Jupyter Notebook, Cursor",
+		title: "IDE",
+	},
+	{
+		desc: "Blender, Adobe Photoshop/Illustrator, Inkscape",
+		title: "Visual Processing",
+	},
+	{
+		desc: "SSH",
+		title: "Network Protocol",
+	},
+	{
+		desc: "MS / Libre Office Word, Excell and Power Point",
+		title: "Productivity",
+	},
+];
+
+
+const listKnow: { desc: string;  title: string }[] = [
+	{
+		desc: "Bayesian inference, Monte Carlo simulations, statistics, modeling",
+		title: "Data Analysis",
+	},
+	{
+		desc: "Deep learning, pattern recognition, data mining",
+		title: "Machine Learning",
+	},
+	{
+		desc: "Classical, quantum, particle, nuclear and plasma physics, special and general relativity",
+		title: "Physics Fields",
+	},
+	{
+		desc: "Data acquisition and processing, analogical and digital electronics",
+		title: "Hardware",
+	},
+	{
+		desc: "Leadership, teamwork, adaptability, problem solving, creativity, analytical skills, time management.",
+		title: "Soft Skills",
+	},
 ];
 
 ---
@@ -103,8 +151,8 @@ const listHard: { desc: string;  title: string }[] = [
 	<!-- ends here  -->
 
 		<!-- starts here  -->
-		<p class="space-y-15">
-			<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
+		<br /><br />
+		<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
 			{
 				listLibs.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
@@ -123,8 +171,8 @@ const listHard: { desc: string;  title: string }[] = [
 
 
 		<!-- starts here  -->
-		<p class="space-y-15">
-			<h2 class="title mb-4 text-xl">Hardware</h2>
+		<br /><br />
+		<h2 class="title mb-4 text-xl">Hardware</h2>
 			{
 				listHard.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
@@ -141,10 +189,50 @@ const listHard: { desc: string;  title: string }[] = [
 		</dl>
 	<!-- ends here  -->
 
+			<!-- starts here  -->
+			<br /><br />
+			<h2 class="title mb-4 text-xl">Misc. Tools</h2>
+				{
+					listHard.map(({ desc,  title }) => (
+						<div class="flex flex-col gap-2 md:flex-row">
+							<dt>
+								<span class="flex cactus-link">
+									{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
+										{title}:
+								</span>
+							</dt>
+							<dd>{desc}</dd>
+						</div>
+					))
+				}
+			</dl>
+		<!-- ends here  -->
+
 	</section>
 </section>
 
 
+<section class="mt-16">
+	<h1 class="title mb-6">Scientific Knowladge</h1>
+
+			<!-- starts here  -->
+			<br /><br />
+				{
+					listKnow.map(({ desc,  title }) => (
+						<div class="flex flex-col gap-2 md:flex-row">
+							<dt>
+								<span class="flex cactus-link">
+									{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
+										{title}:
+								</span>
+							</dt>
+							<dd>{desc}</dd>
+						</div>
+					))
+				}
+			</dl>
+		<!-- ends here  -->
+</section>
 
 	<!-- <section aria-label="Blog post list" class="mt-16">
 		<h2 class="title mb-4 text-xl">Contributions</h2>
