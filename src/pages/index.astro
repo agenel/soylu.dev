@@ -8,48 +8,49 @@ const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-const cactusTech: { desc: string; href: string; title: string }[] = [
+// const listTech: { desc: string; href: string; title: string }[] = [
+
+const listSoft: { desc: string;  title: string }[] = [
 	{
-		desc: "Build fast websites, faster.",
-		href: "https://astro.build",
-		title: "Astro",
+		desc: "C++ (v. 14/17/20), Python (v. 2.7/3), MATLAB, Fortran ",
+		title: "Programming",
 	},
 	{
-		desc: "Rapidly build modern websites without ever leaving your HTML.",
-		href: "https://tailwindcss.com",
-		title: "Tailwind CSS",
+		desc: "Bash, Powershell",
+		title: "Scripting",
 	},
 	{
-		desc: "Simple and easy-to-use markup language.",
-		href: "https://www.markdownguide.org/",
-		title: "Markdown",
+		desc: "GNU make",
+		title: "Bulding",
 	},
 	{
-		desc: "Markdown for the component era.",
-		href: "https://mdxjs.com/",
-		title: "MDX",
+		desc: "pytest, doctest (C++, Python)",
+		title: "Testing",
 	},
-	{
-		desc: "Generating png Open Graph images for blog posts.",
-		href: "https://github.com/vercel/satori",
-		title: "Satori",
-	},
-	{
-		desc: "A fully static search library.",
-		href: "https://pagefind.app/",
-		title: "Pagefind",
-	},
-	{
-		desc: "An easy to use Icon component for Astro.",
-		href: "https://github.com/natemoo-re/astro-icon#readme",
-		title: "Astro Icon",
-	},
-	{
-		desc: "Highly customisable source code & syntax highlighter",
-		href: "https://expressive-code.com/",
-		title: "Expressive Code",
-	},
+	
 ];
+
+const listLibs: { desc: string;  title: string }[] = [
+	{
+		desc: "Pandas, SciPy, NumPy, Seaborn, Matplotlib, CERN ROOT ",
+		title: "Data Analysis",
+	},
+	{
+		desc: "Sci-Kit-Learn, TensorFlow, PyTorch",
+		title: "Machine Learning & AI Development",
+	},
+	{
+		desc: "CUDA, multiprocessing and threading",
+		title: "Parallelization",
+	},
+	{
+		desc: "COMSOL Multiphysics, Geant4, SPICE",
+		title: "Physics Simulation Platforms",
+	},
+	
+];
+
+
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -65,16 +66,17 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 
 	<section class="mt-16">
 		<h1 class="title mb-6">Skills</h1>
-		<h2 class="title mb-4 text-xl">Technical Set</h2>
+		<!-- starts here  -->
+		<h2 class="title mb-4 text-xl">Software Development</h2>
 		<dl class="space-y-4">
 			{
-				cactusTech.map(({ desc, href, title }) => (
+				listSoft.map(({ desc,  title }) => (
 					<div class="flex flex-col gap-2 md:flex-row">
 						<dt>
 							<span class="flex">
-								<a class="cactus-link" href={href} rel="noopener noreferrer" target="_blank">
+								{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
 									{title}
-								</a>
+								{/* </a> */}
 								:
 							</span>
 						</dt>
@@ -83,6 +85,30 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 				))
 			}
 		</dl>
+	<!-- ends here  -->
+		<!-- starts here  -->
+		<h2 class="title mb-4 text-xl">Frameworks & Libraries</h2>
+		<dl class="space-y-4">
+			{
+				listLibs.map(({ desc,  title }) => (
+					<div class="flex flex-col gap-2 md:flex-row">
+						<dt>
+							<span class="flex">
+								{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
+									{title}
+								{/* </a> */}
+								:
+							</span>
+						</dt>
+						<dd>{desc}</dd>
+					</div>
+				))
+			}
+		</dl>
+	<!-- ends here  -->
+
+
+
 	</section>
 </section>
 
