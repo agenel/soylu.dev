@@ -111,7 +111,7 @@ const listKnow: { desc: string;  title: string }[] = [
 		title: "Hardware",
 	},
 	{
-		desc: "Teamwork, adaptability, problem solving, creativity, analytical skills, time management.",
+		desc: "Teamwork, adaptability, problem solving, creativity, analytical skills.",
 		title: "Soft Skills",
 	},
 ];
@@ -122,21 +122,19 @@ const listKnow: { desc: string;  title: string }[] = [
 	<section>
 		<h1 class="title mb-4">Hello World!</h1>
 		<p class="mb-2">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on the github icon link below and it will take you to my repo.
+			Hi, I’m Arif, based in Groningen, the Netherlands. I specialize in experimental nuclear physics, with hands-on experience in the instrumentation, simulation, and development of various experiments. My work spans the full process, from conceptualization to building. Currently, I’m open to new opportunities, and I created this website to help you get to know me better.
 		</p>
 		<SocialList />
 	</section>
 
 	<section>
-		<p class="flex cactus-link"> Areas of Interest:</p> <p>Data Analysis, Object-oriented programming, Ion optical simulations, Magnetic field modelling, Monte Carlo simulations, Signal Analysis, Signal Processing, PCB Design, FPGEs </p>
+		<p class="flex title mt-6"> Areas of Interest:</p> <p>Data Analysis, Object-oriented programming, Ion optical simulations, Magnetic field modelling, Monte Carlo simulations, Signal Analysis, Signal Processing, PCB Design, FPGEs </p>
 	</section>
 
 	<section class="mt-16">
 		<h1 class="title mb-6">Skills</h1>
 		<!-- starts here  -->
-		<h2 class="title mb-2 text-xl">Software Development</h2>
+		<h2 class="title mb-1.5 text-xl">Software Development</h2>
 		<dl class="space-y-1.0">
 			{
 				listSoft.map(({ desc,  title }) => (
@@ -177,7 +175,7 @@ const listKnow: { desc: string;  title: string }[] = [
 
 		<!-- starts here  -->
 		<br /><br />
-		<h2 class="title mb-4 text-xl">Hardware</h2>
+		<h2 class="title mb-2 text-xl">Hardware</h2>
 		<dl class="space-y-1.0">
 
 			{
@@ -198,7 +196,7 @@ const listKnow: { desc: string;  title: string }[] = [
 
 			<!-- starts here  -->
 			<br /><br />
-			<h2 class="title mb-4 text-xl">Misc. Tools</h2>
+			<h2 class="title mb-2 text-xl">Misc. Tools</h2>
 			<dl class="space-y-1.0">
 
 				{
