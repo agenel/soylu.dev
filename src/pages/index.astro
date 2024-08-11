@@ -12,19 +12,19 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const listSoft: { desc: string;  title: string }[] = [
 	{
-		desc: "C++ (v. 14/17/20), Python (v. 2.7/3), MATLAB, Fortran ",
+		desc: "C++ (v. 14/17/20), Python (v. 2.7/3), MATLAB, Fortran.",
 		title: "Programming",
 	},
 	{
-		desc: "Bash, Powershell",
+		desc: "Bash, Powershell.",
 		title: "Scripting",
 	},
 	{
-		desc: "GNU make, Git, Docker",
+		desc: "GNU make, Git, Docker.",
 		title: "Bulding / Version Control",
 	},
 	{
-		desc: "pytest, doctest (C++, Python)",
+		desc: "pytest, doctest (C++, Python).",
 		title: "Testing",
 	},
 	
@@ -32,19 +32,19 @@ const listSoft: { desc: string;  title: string }[] = [
 
 const listLibs: { desc: string;  title: string }[] = [
 	{
-		desc: "Pandas, SciPy, NumPy, Seaborn, Matplotlib, CERN ROOT ",
+		desc: "Pandas, SciPy, NumPy, Seaborn, Matplotlib, CERN ROOT.",
 		title: "Data Analysis",
 	},
 	{
-		desc: "Sci-Kit-Learn, TensorFlow, PyTorch",
+		desc: "Sci-Kit-Learn, TensorFlow, PyTorch.",
 		title: "ML & AI Development",
 	},
 	{
-		desc: "CUDA, multiprocessing and threading",
+		desc: "CUDA, multiprocessing and threading.",
 		title: "Parallelization",
 	},
 	{
-		desc: "COMSOL Multiphysics, Mathematica, Geant4, SUPERFISH/POISSON, SPICE",
+		desc: "COMSOL Multiphysics, Mathematica, Geant4, SUPERFISH/POISSON, SPICE.",
 		title: "Physics Simulations",
 	},
 	
@@ -62,7 +62,7 @@ const listHard: { desc: string;  title: string }[] = [
 		title: "Micro -processors, -controllers",
 	},
 	{
-		desc: "Red pitaya, Versa Module Eurocard(VME), NIM Modules",
+		desc: "Red pitaya, Versa Module Eurocard(VME), NIM Modules.",
 		title: "Front-end readout",
 	},
 
@@ -71,23 +71,23 @@ const listHard: { desc: string;  title: string }[] = [
 
 const listTools: { desc: string;  title: string }[] = [
 	{
-		desc: "Linux (Arch, Ubuntu, CentOS, WSL), Windows, MacOS ",
+		desc: "Linux (Arch, Ubuntu, CentOS, WSL), Windows, MacOS.",
 		title: "Operating Systems",
 	},	
 	{
-		desc: "VIm, VS Code, Sublime Text, Jupyter Notebook, Cursor",
+		desc: "VIm, VS Code, Sublime Text, Jupyter Notebook, Cursor.",
 		title: "IDE",
 	},
 	{
-		desc: "Blender, Adobe Photoshop/Illustrator, Inkscape",
+		desc: "Blender, Adobe Photoshop/Illustrator, Inkscape.",
 		title: "Visual Processing",
 	},
 	{
-		desc: "SSH",
+		desc: "SSH.",
 		title: "Network Protocol",
 	},
 	{
-		desc: "MS / Libre Office Word, Excell and Power Point, Obsidian",
+		desc: "MS / Libre Office Word, Excell and Power Point, Obsidian.",
 		title: "Productivity",
 	},
 ];
@@ -95,19 +95,19 @@ const listTools: { desc: string;  title: string }[] = [
 
 const listKnow: { desc: string;  title: string }[] = [
 	{
-		desc: "Bayesian inference, Monte Carlo simulations, statistics, modeling",
+		desc: "Bayesian inference, Monte Carlo simulations, statistics, modeling.",
 		title: "Data Analysis",
 	},
 	{
-		desc: "Deep learning, pattern recognition, data mining",
+		desc: "Deep learning, pattern recognition, data mining.",
 		title: "Machine Learning",
 	},
 	{
-		desc: "Classical, quantum, particle and nuclear physics, magnetic fields",
+		desc: "Classical, quantum, particle and nuclear physics, magnetic fields.",
 		title: "Physics Fields",
 	},
 	{
-		desc: "Data acquisition and processing, analogical and digital electronics",
+		desc: "Data acquisition and processing, analogical and digital electronics.",
 		title: "Hardware",
 	},
 	{
@@ -216,27 +216,7 @@ const listKnow: { desc: string;  title: string }[] = [
 				}
 			</dl>
 		<!-- ends here  -->
-
-					<!-- starts here  -->
-			<br /><br />
-			<h2 class="title mb-2 text-xl">Misc. Tools</h2>
-			<dl class="space-y-1.0">
-
-				{
-					listTools.map(({ desc,  title }) => (
-						<div class="flex flex-col gap-2 md:flex-row">
-							<dt>
-								<span class="flex cactus-link">
-									{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
-										{title}:
-								</span>
-							</dt>
-							<dd>{desc}</dd>
-						</div>
-					))
-				}
-			</dl>
-		<!-- ends here  -->
+		
 
 	</section>
 </section>
