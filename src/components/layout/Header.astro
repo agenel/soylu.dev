@@ -8,6 +8,21 @@ const url = new URL(Astro.request.url);
 ---
 
 <header class="group relative mb-20 flex items-center sm:ps-[4.5rem]" id="main-header">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KRYDTTHG64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KRYDTTHG64');
+</script>
+
+
+
+
+
 	<div class="flex sm:flex-col">
 		<a
 			aria-current={url.pathname === "/" ? "page" : false}
