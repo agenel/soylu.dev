@@ -1,6 +1,6 @@
 ---
 title: "Unique tags validation"
-publishDate: 
+publishDate: ""
 description: "This post is used for validating if duplicate tags are removed, regardless of the string case"
 tags: ["blog", "blog", "Blog", "test", "bloG", "Test", "BLOG"]
 ---
