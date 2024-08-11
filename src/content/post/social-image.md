@@ -1,5 +1,6 @@
 ---
 title: "Example OG Social Image"
+publishDate: 
 description: "An example post for Astro Cactus, detailing how to add a custom social image card in the frontmatter"
 tags: ["example", "blog", "image"]
 ogImage: "/social-card.png"
