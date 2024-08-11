@@ -20,7 +20,7 @@ const listSoft: { desc: string;  title: string }[] = [
 		title: "Scripting",
 	},
 	{
-		desc: "GNU make, Git",
+		desc: "GNU make, Git, Docker",
 		title: "Bulding / Version Control",
 	},
 	{
@@ -71,7 +71,7 @@ const listHard: { desc: string;  title: string }[] = [
 
 const listTools: { desc: string;  title: string }[] = [
 	{
-		desc: "Linux (Arch, Ubuntu, CentOS, WSL), Windows ",
+		desc: "Linux (Arch, Ubuntu, CentOS, WSL), Windows, MacOS ",
 		title: "Operating Systems",
 	},	
 	{
@@ -203,6 +203,27 @@ const listKnow: { desc: string;  title: string }[] = [
 
 				{
 					listHard.map(({ desc,  title }) => (
+						<div class="flex flex-col gap-2 md:flex-row">
+							<dt>
+								<span class="flex cactus-link">
+									{/* <a class="cactus-link" rel="noopener noreferrer" target="_blank"> */}
+										{title}:
+								</span>
+							</dt>
+							<dd>{desc}</dd>
+						</div>
+					))
+				}
+			</dl>
+		<!-- ends here  -->
+
+					<!-- starts here  -->
+			<br /><br />
+			<h2 class="title mb-2 text-xl">Misc. Tools</h2>
+			<dl class="space-y-1.0">
+
+				{
+					listTools.map(({ desc,  title }) => (
 						<div class="flex flex-col gap-2 md:flex-row">
 							<dt>
 								<span class="flex cactus-link">
