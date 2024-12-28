@@ -1,6 +1,6 @@
 ---
 title: "Stacked-ring ion guide for cooling and bunching rare isotope"
-description: "We present a conceptual design of an ion guide as an alternative to the conventional linear Radio-Frequency Quadrupole (RFQ) for cooling and bunching rare isotopes"
+description: "We present a conceptual design of an ion guide as an alternative to the conventional linear Radio-Frequency Quadrupole (RFQ) for cooling and bunching rare..."
 publishDate: "01 Jul 2022"
 tags: ["paper"]
 ---
