@@ -2,6 +2,7 @@
 title: "The DESPEC setup for GSI and FAIR"
 description: "The DEcay SPECtroscopy (DESPEC) setup for nuclear structure investigations was developed and commissioned at GSI, Germany in preparation for a full campaign..."
 publishDate: "11 Jun 2022"
+tags: ["paper"]
 ---
 
 ## Title

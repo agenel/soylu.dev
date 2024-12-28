@@ -2,10 +2,11 @@
 title: "Stacked-ring ion guide for cooling and bunching rare isotopes"
 description: "We present a conceptual design of an ion guide as an alternative to the conventional linear Radio-Frequency Quadrupole (RFQ) for cooling and bunching rare isotopes"
 publishDate: "01 Jul 2022"
+tags: ["paper"]
 ---
 
 ## Title
-The DESPEC setup for GSI and FAIR
+Stacked-ring ion guide for cooling and bunching rare isotopes
 
 DOI: [10.1016/j.ijms.2022.116856](https://doi.org/10.1016/j.ijms.2022.116856)
 
