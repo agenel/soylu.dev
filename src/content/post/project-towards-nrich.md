@@ -2,7 +2,7 @@
 title: "The NEXT Project: Towards Production and Investigation of Neutron-Rich Heavy Nuclides"
 description: "The heaviest actinide elements are only accessible in accelerator-based experiments on a one-atom-at-a-time level."
 publishDate: "01 Jun 2022"
-tags: 
+tags: []
 ---
 
 ## Abstract
