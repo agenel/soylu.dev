@@ -1,11 +1,12 @@
 ---
 title: "The DESPEC setup for GSI and FAIR"
-description: "The heaviest actinide elements are only accessible in accelerator-based experiments on a one-atom-at-a-time level."
+description: "The DEcay SPECtroscopy (DESPEC) setup for nuclear structure investigations was developed and commissioned at GSI, Germany in preparation for a full campaign..."
 publishDate: "11 Jun 2022"
 ---
 
 ## Title
 The DESPEC setup for GSI and FAIR
+
 DOI: [10.1016/j.nima.2022.166662](https://doi.org/10.1016/j.nima.2022.166662)
 
 
