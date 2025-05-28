@@ -17,4 +17,4 @@ The DEcay SPECtroscopy (DESPEC) setup for nuclear structure investigations was d
 
 
 ## Authors
-A.K. Mistry; H.M. Albers; T. Arıcı ;A. Banerjee; G. Benzoni; A. Soylu , E. Sahin;  
+A.K. Mistry; H.M. Albers; T. Arıcı ;A. Banerjee; G. Benzoni; A. Soylu , E. Sahin, et al.;  
