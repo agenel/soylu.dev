@@ -84,7 +84,7 @@
     const text = await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
     return JSON.parse(text);
   }
-  async function loadAll(key) {
+  let loadAll = async function (key) {
     const sealed = await Promise.all(FILES.map((f) => fetchSealed(f).catch((e) => ({ missing: String(e.message || e) }))));
     if (sealed.every((s) => s.missing)) throw new Error('No data files found yet.');
     const merged = {};
@@ -173,7 +173,25 @@
   document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
   setInterval(poll, RELOAD_MS);
 
+  // Plain mode (the TSF Store tool on the home server): no password, data straight from window.GP_PLAIN.
+  async function loadPlain() {
+    const res = await fetch(window.GP_PLAIN + '?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('growth data: HTTP ' + res.status);
+    const b = await res.json();
+    if (b.generated !== lastGenerated) { datasets = b.datasets; lastGenerated = b.generated; loadError = null; mount(b.page); drawAll(); }
+  }
+  if (window.GP_PLAIN) {
+    key = 'plain';
+    loadAll = async () => { await loadPlain(); return { merged: datasets, generated: lastGenerated }; };
+  }
+
   document.addEventListener('DOMContentLoaded', async () => {
+    if (window.GP_PLAIN) {
+      const out = document.getElementById('gp-signout'); if (out) { out.textContent = '← TSF Store'; out.href = '/'; }
+      panel().hidden = false;
+      try { await loadPlain(); } catch (e) { loadError = String(e.message || e); document.getElementById('gp-mount').textContent = 'Could not load the numbers: ' + loadError; }
+      return;
+    }
     document.getElementById('gp-lock-form').addEventListener('submit', onSubmit);
     const out = document.getElementById('gp-signout');
     if (out) out.addEventListener('click', (e) => { e.preventDefault(); dash.lock(); });
