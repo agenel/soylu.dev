@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Growth Panel</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='8' width='3' height='6' fill='%23555'/%3E%3Crect x='6.5' y='5' width='3' height='9' fill='%23555'/%3E%3Crect x='11' y='2' width='3' height='12' fill='%23555'/%3E%3C/svg%3E">
+<style>
+:root{
+  --font-anthropic-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-anthropic-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --cds-font-size-title: 2rem; --cds-font-size-heading: 1.25rem; --cds-font-size-body: .9375rem; --cds-font-size-caption: .8125rem;
+  --cds-font-weight-medium: 600;
+  --cds-gap-sm: 8px; --cds-gap-md: 12px; --cds-gap-lg: 20px; --cds-gap-xl: 32px;
+  --cds-pad-lg: 16px; --cds-radius: 10px;
+  --color-bg: #f7f7f5; --color-panel: #ffffff; --color-fg: #1d1d1b; --color-fg-muted: #6b6b66; --color-border-line: #e3e2dd;
+  --color-ok: #2f7d4f; --color-warn: #a86108; --color-bad: #b42318;
+  --cds-text-secondary: #6b6b66; --cds-chart-axis: #c9c8c2; --cds-chart-grid: #ecebe6; --cds-chart-reference: #8a8a84;
+  --cds-surface-popover: #ffffff; --cds-border: #dddcd6; --cds-shadow-popover: 0 4px 16px rgba(0,0,0,.08);
+  --gp-c1: #2f6bd8; --gp-c2: #d07a1f; --gp-c3: #2e9467; --gp-c4: #8d8f95; --gp-c5: #9a5bc8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-bg: #161615; --color-panel: #1f1f1d; --color-fg: #ecebe6; --color-fg-muted: #a3a29c; --color-border-line: #33322f;
+    --color-ok: #5cc28a; --color-warn: #e3a24a; --color-bad: #f07068;
+    --cds-text-secondary: #a3a29c; --cds-chart-axis: #4a4945; --cds-chart-grid: #2c2b29; --cds-chart-reference: #8f8e88;
+    --cds-surface-popover: #262624; --cds-border: #3a3936; --cds-shadow-popover: 0 4px 16px rgba(0,0,0,.4);
+    --gp-c1: #6d9cf0; --gp-c2: #eba15a; --gp-c3: #5cc28a; --gp-c4: #9c9ea4; --gp-c5: #bf8ee6;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans)}
+.gp-wrap{max-width:1200px;margin:0 auto;padding:24px 16px 64px}
+.gp a{color:inherit}
+.dash-select{font:inherit;font-size:var(--cds-font-size-body);padding:6px 10px;border:1px solid var(--color-border-line);border-radius:6px;background:var(--color-panel);color:var(--color-fg)}
+.gp-topbar{display:flex;justify-content:flex-end;margin-bottom:-12px}
+.gp-topbar a{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+#gp-lock{min-height:100vh;display:grid;place-items:center;padding:16px}
+#gp-lock[hidden],#gp-panel[hidden]{display:none}
+#gp-lock form{width:min(360px,100%);display:grid;gap:12px;background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:24px}
+#gp-lock h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:1.6rem;margin:0}
+#gp-lock p{margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+#gp-lock input[type=password]{font:inherit;padding:9px 11px;border:1px solid var(--color-border-line);border-radius:6px;background:var(--color-bg);color:var(--color-fg);width:100%}
+#gp-lock label{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:flex;gap:6px;align-items:center}
+#gp-lock button{font:inherit;font-weight:600;padding:9px 12px;border:0;border-radius:6px;background:var(--color-fg);color:var(--color-bg);cursor:pointer}
+#gp-lock button:disabled{opacity:.6}
+#gp-lock [data-msg]{min-height:1.2em;color:var(--color-bad)}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="dash.js"></script>
+</head>
+<body>
+<div id="gp-lock" hidden>
+  <form id="gp-lock-form" autocomplete="on">
+    <h1>Growth Panel</h1>
+    <p>TheSciFi.Net store numbers. Enter the team password.</p>
+    <input type="text" name="username" value="growth-panel" autocomplete="username" hidden>
+    <input type="password" name="password" autocomplete="current-password" aria-label="Password" placeholder="Password" required>
+    <label><input type="checkbox" checked> Remember on this device</label>
+    <button type="submit">Unlock</button>
+    <p data-msg role="status"></p>
+  </form>
+</div>
+<div id="gp-panel" hidden>
+<div class="gp-wrap">
+<div class="gp-topbar"><a href="#" id="gp-signout">Lock</a></div>
+<div id="gp-mount"></div>
+</div>
+</div>
+</body>
+</html>
