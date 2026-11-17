@@ -130,7 +130,7 @@
   }
   async function deriveKey(password, salt, iter) {
     const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
-    return crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64.from(salt), iterations: iter }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64.from(salt), iterations: iter }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt', 'encrypt']);
   }
   async function open(sealed, key) {
     const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64.from(sealed.iv) }, key, b64.from(sealed.ct));
@@ -185,7 +185,7 @@
     const saved = store.get('localStorage', KEY_STORE) || store.get('sessionStorage', KEY_STORE);
     if (!saved) return false;
     try {
-      const k = await crypto.subtle.importKey('raw', b64.from(saved), { name: 'AES-GCM' }, true, ['decrypt']);
+      const k = await crypto.subtle.importKey('raw', b64.from(saved), { name: 'AES-GCM' }, true, ['decrypt', 'encrypt']);
       await unlockWith(k);
       return true;
     } catch (e) { console.warn('remembered key failed', e); store.del(KEY_STORE); return false; }
