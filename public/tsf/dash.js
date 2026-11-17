@@ -69,6 +69,59 @@
     lock() { store.del(KEY_STORE); location.reload(); },
   };
 
+  // ---- shared tasks (#tasks) ----
+  // Website: each task is encrypted here with the panel key and stored by the Netlify function /tsf/api/tasks, which
+  // only sees { iv, ct } and checks a token derived from the key. The home server's copy (GP_PLAIN) goes through the
+  // TSF Store tool's /api/tasks, which does the same with the key it holds.
+  const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+  let tasksTok = null;
+  async function taskToken() {
+    if (!tasksTok) {
+      const raw = await crypto.subtle.exportKey('raw', key);
+      tasksTok = hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('tsf-tasks-v1:' + b64.to(raw))));
+    }
+    return tasksTok;
+  }
+  async function taskCall(method, query, body) {
+    const plain = !!window.GP_PLAIN;
+    const headers = plain ? { 'X-TSF-Store': '1' } : { 'X-TSF-Token': await taskToken() };
+    if (body) headers['Content-Type'] = 'application/json';
+    const res = await fetch((plain ? '/api/tasks' : '/tsf/api/tasks') + query, { method, headers, cache: 'no-store', body: body ? JSON.stringify(body) : undefined });
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok) throw Object.assign(new Error(j.error || 'HTTP ' + res.status), { status: res.status });
+    return j;
+  }
+  async function sealTask(obj) {
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(JSON.stringify(obj)));
+    return { iv: b64.to(iv), ct: b64.to(ct) };
+  }
+  async function openTask(s) {
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64.from(s.iv) }, key, b64.from(s.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  const newId = () => hex(crypto.getRandomValues(new Uint8Array(8)));
+  window.dash.tasks = {
+    available: () => !!key,
+    // -> [{ id, etag, title, status, owner, due, notes, created, created_by, updated, updated_by }]
+    async list() {
+      const j = await taskCall('GET', '');
+      if (window.GP_PLAIN) return j.tasks;
+      const out = [];
+      for (const t of j.tasks) { try { out.push({ ...(await openTask(t.sealed)), id: t.id, etag: t.etag }); } catch (e) { console.warn('task not readable', t.id); } }
+      return out;
+    },
+    // task without id = new. etag = the version that was loaded (409 if someone changed it since).
+    async save(task, etag) {
+      const id = task.id || newId();
+      const { id: _i, etag: _e, ...fields } = task;
+      const body = window.GP_PLAIN ? { task: fields, etag } : { sealed: await sealTask(fields), etag };
+      const r = await taskCall('PUT', '?id=' + id, body);
+      return { id, etag: r.etag };
+    },
+    remove(id, etag) { return taskCall('DELETE', '?id=' + encodeURIComponent(id) + '&etag=' + encodeURIComponent(etag || '')); },
+  };
+
   // ---- decryption ----
   async function fetchSealed(name) {
     const res = await fetch(name + '?t=' + Date.now(), { cache: 'no-store' });
